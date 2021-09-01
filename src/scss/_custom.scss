@@ -1,0 +1,225 @@
+.marginBtm15px {
+  margin-bottom: 1.5rem;
+}
+// Image profile Styling
+.containerProfileRewards {
+  background: #fff;
+  padding: 15px;
+  border-radius: 6px;
+}
+.containerProfileRewards {
+  border: 1px solid #ddd;
+}
+.rewardsDurationBlock {
+  text-align: center;
+}
+.rewardsDuration {
+  background: #ced2d8;
+  color: #fff;
+}
+
+.improvementAreasTitle {
+  font-size: 16px;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: red;
+}
+.rewardsDuration,
+.redAreaParameters {
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 3px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 6px;
+}
+
+.durationTitle {
+  margin-top: 5px;
+}
+.paraRedAreaBlock {
+  margin-top: 6rem;
+  text-align: center;
+}
+.outerProfileRewardsBlock {
+  padding: 15px 0px;
+}
+.profileImg {
+    width: 60%;
+    position: relative;
+    border-radius: 5px;
+    display: flex;
+    margin: auto;
+}
+
+.totlePointsBlock {
+  margin: 1.5rem;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.rewardsBlockPoints {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.PointsMargin {
+  margin-top: 0.27rem;
+}
+
+.textClrBlue {
+  color: navy;
+}
+
+.goldPointBlock,
+.silverPointBlock,
+.bronzePointBlock {
+  color: #fff;
+  width: 5rem;
+  height: 2rem;
+  border: 1px solid #ddd;
+}
+.goldPointBlock {
+  background-color: #ffd700;
+}
+.silverPointBlock {
+  background-color: #a9a9a9;
+}
+.bronzePointBlock {
+  background-color: #8c7853;
+}
+
+.devDesignation {
+  margin-left: 1.5rem;
+  font-weight: 500;
+  color: #959595;
+  font-size: 16px;
+}
+
+.totlePointsBlock,
+.profileImgBlock,
+.rewardsBlockPoints {
+  text-align: center;
+}
+
+.parentRewardBlock {
+  text-align: center;
+  display: inline-block;
+  border-radius: 50%;
+  border: 1px solid #c4c9d0;
+}
+
+.overAllRewardEarned {
+  float: left;
+}
+.overAllPointsEarned {
+  float: right;
+  font-size: 16px;
+  margin-top: 2rem;
+  font-weight: 500;
+  color: #636f83;
+}
+
+.MainRewardBlock {
+  max-width: 15rem;
+}
+
+.badgeNameEarned {
+  margin-top: 0.4rem;
+}
+.pointsEarned {
+  background: #97e197;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.childRewardBlock {
+  display: inline-block;
+}
+
+.imgInsideReward {
+  display: inline-block;
+  padding: 2rem;
+  width: 8rem;
+}
+
+.rewardStatsContainer {
+  margin-top: 1.5rem;
+  background-color: #fff;
+  border-radius: 6px;
+}
+.rewardStatsBlockDetail {
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  padding: 12px;
+  margin: 1rem 0px;
+}
+.StaterewardImg {
+  width: 2.5rem;
+}
+.paraNameTagsBlock {
+  clear: both;
+  display: inline-block;
+  padding-top: 1.5rem;
+}
+.paraNameTag {
+  font-size: 12px;
+  font-weight: 500;
+  color: #fff;
+
+  padding: 1px 3px;
+  border-radius: 4px;
+  margin: 5px 5px;
+}
+.goldParams,
+.goldPoints {
+  background: #ffd700;
+}
+.silverParams,
+.silverPoints {
+  background: #a9a9a9;
+}
+.bronzeParams,
+.bronzePoints {
+  background: #8c7853;
+}
+
+.rewardImgBlock {
+  float: left;
+  border: 1px solid;
+  border-radius: 50%;
+  padding: 0.7rem;
+}
+.rewardPointsBlock {
+  float: right;
+}
+.rewardTotlePoints {
+  font-size: 18px;
+  font-weight: 500;
+  // margin-left: -10rem;
+  position: absolute;
+  margin-top: 0.5rem;
+  color: #fff;
+  padding: 0rem 1.3rem;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.rewardPointBadgeName {
+  // margin-left: -10rem;
+  position: relative;
+  margin-top: 2.3rem;
+  font-size: 12px;
+  font-weight: 500;
+}
+.goldRewardStats,
+.silverRewardStats,
+.bronzeRewardStats {
+  height: 10rem;
+  width: 100%;
+  border: 1px solid;
+  border-radius: 7px;
+}
