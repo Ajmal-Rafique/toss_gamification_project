@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { CRow, CCol } from "@coreui/react";
 
-function RewardStats() {
+function RewardStats(props) {
   const [goldType, setGoldType] = useState([]);
   const [goldParams, setGoldParams] = useState([]);
 
@@ -14,30 +14,43 @@ function RewardStats() {
 
   useEffect(() => {
     getCardsData()
-  }, []);
+  }, [props.selectedUserId]);
 
 
   function getCardsData() {
     return axios.get("http://localhost:9000/cardsData")
       .then((res) => {
         console.log("setGoldBadgeState", res.data);
-        setGoldType(res.data.goldType);
-        setGoldParams(res.data.goldType.params);
-
-        setSilverType(res.data.silverType);
-        setSilverParams(res.data.silverType.params);
-
-        setBronzeType(res.data.bronzeType);
-        setBronzeParams(res.data.bronzeType.params);
-
-        console.log("SilverTye", silverType);
+        renderRewardsStatsData(res.data)
       })
       .catch((err) => {
         console.log("Err", err);
       });
   }
 
-  
+  function renderRewardsStatsData(data) {
+    console.log("data", data)
+    // for (let item of data) {
+      for (let i = 0; i <= data.length; i++) {
+        if(data[i].userId == props.selectedUserId){
+          // alert("hi", data[i].userId)
+          setGoldType(data[i].goldType);
+          setGoldParams(data[i].goldType.params);
+
+          setSilverType(data[i].silverType);
+          setSilverParams(data[i].silverType.params);
+
+          setBronzeType(data[i].bronzeType);
+          setBronzeParams(data[i].bronzeType.params);
+
+          console.log("SilverTye", silverType);
+
+        }
+      }
+      
+    // }
+    console.log("setUserRewardProfile", data)
+  }
 
   return (
     <>
