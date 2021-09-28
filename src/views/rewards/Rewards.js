@@ -14,36 +14,64 @@ function Dashboard() {
   const [totalRewardsDetail, setTotalRewardsDetail] = useState([])
   const [overAllEarnReward, setOverAllEarnReward] = useState([])
   const [durationTotalRewards, setDurationTotalRewards] = useState([])
+  const [selectedUser, setSelectedUser] = useState('Muhammad Ajmal Rafique')
+  const [selectedUserId, setSelectedUserId] = useState(1)
 
-  function getRewardsData () {
-    return axios.get('http://localhost:9000/userProfile')
+  function getRewardsData (id) {
+    return axios.get('http://localhost:9000/userProfile/'+id)
       .then(res => {
-        console.log("setUserRewardProfile", res.data)
-        setUserRewardProfile(res.data)
-        setProfileDetailUser(res.data.profileDetail)
-        setTotalRewardsDetail(res.data.totalRewardsDetail)
-        setOverAllEarnReward(res.data.overAllEarnReward)
-        setDurationTotalRewards(res.data.durationTotalRewards)
-
-        console.log("userRewardProfile", userRewardProfile)
+        renderRewardsData(res.data);        
       })
       .catch(err => {
         console.log(err)
       })
   }
 
+  function renderRewardsData(data) {
+    console.log("data", data)
+    // for (let item of data) {
+      for (let i = 0; i <= data.length; i++) {
+        if(data[i].userId == selectedUserId){
+          // alert("hi", data[i].userId)
+          setUserRewardProfile(data[i])
+          setProfileDetailUser(data[i].profileDetail)
+          setTotalRewardsDetail(data[i].totalRewardsDetail)
+          setOverAllEarnReward(data[i].overAllEarnReward)
+          setDurationTotalRewards(data[i].durationTotalRewards)
+          console.log("userRewardProfile", userRewardProfile)
+        }
+      }
+      
+    // }
+    console.log("setUserRewardProfile", data)
+  }
+
+  function updatedUserFun(optionEle) {
+    setSelectedUser(optionEle.innerText)
+    var optnEleId =  optionEle.getAttribute('id');
+    selectedUserIdFun(optnEleId)
+    // console.log("ele", optionEle)
+    // const url= 'http://localhost:9000/userProfile/'+{selectedUserId};
+    getRewardsData(selectedUserId)
+  }
+
+ function selectedUserIdFun(id) {
+  setSelectedUserId(id);
+ }
+
   
 
   useEffect(() => {
-    getRewardsData();
-  }, [])
+    getRewardsData(selectedUserId);
+  }, [selectedUserId])
+
   return (
       <>
       <div className="containerProfileRewards marginBtm15px">
         <CRow>
           <CCol>
             <div className="float-right">
-              <UserListingData />
+              <UserListingData updatedUser={updatedUserFun} userName={selectedUser}/>
             </div>
           </CCol>
         </CRow>
@@ -69,6 +97,7 @@ function Dashboard() {
                     <div className="bronzePointBlock"><p className="PointsMargin">{totalRewardsDetail.totalBronzePoints}</p></div>
                   </div>
                 </div>
+                {/* <div>{selectedUser}</div> */}
               </div>
               
             </CCol>
@@ -98,7 +127,7 @@ function Dashboard() {
             </CCol>
             <CCol sm={3}>
               <div className="rewardsDurationBlock">
-                <h5 className="durationTitle">Total Reward's Duration</h5>
+                <h5 className="durationTitle">In TEO Since</h5>
                 <div className="rewardsDuration">{userRewardProfile.totalRewardsDuration}</div>
               </div>
               <div className="paraRedAreaBlock">
@@ -116,7 +145,7 @@ function Dashboard() {
 
       {/* <h4>Weekly Rewards Stats</h4> */}
       <CContainer className="rewardStatsContainer">
-        <RewardCards />
+        <RewardCards selectedUserId={selectedUserId} />
       </CContainer>
     </>
   )
